@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Hero from './Hero';
 import About from './About';
 import Skills from './Skills';
-import Projects from './ProjectsSection';
+import Projects from './MyProjects';
 import Contact from './ContactSection.jsx';
 
 function Portfolio() {
