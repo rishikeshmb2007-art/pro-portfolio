@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+
 function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-[#020817] px-6 font-mono relative overflow-hidden">
