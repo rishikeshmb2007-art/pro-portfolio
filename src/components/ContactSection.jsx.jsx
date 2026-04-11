@@ -2,25 +2,41 @@ import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
-  // ─── STATE & FIREBASE LOGIC UNTOUCHED ────────────────────────
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('');
 
   const handleContact = async (e) => {
     e.preventDefault();
     setStatus('Sending...');
+
     try {
+      // 1. FIREBASE LA SAVE PANRA CODE
       await addDoc(collection(db, "messages"), { ...formData, timestamp: new Date() });
-      setStatus('✅ Message Sent Successfully!');
+
+      // 2. EMAILJS VAZHIYA GMAIL-KU ANUPPURA CODE
+      await emailjs.send(
+        'service_oahnp1a',    // 👈 Quotes pottu add panniyachu
+        'template_txgrygv',   // 👈 Quotes pottu add panniyachu
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        'iPSQzlfUi0C8X9Jxs'   // 👈 Quotes pottu add panniyachu
+      );
+
+      setStatus('✅ Message Sent! I will get back to you soon.');
       setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus(''), 4000);
+      setTimeout(() => setStatus(''), 5000);
+      
     } catch (err) {
+      console.error(err);
       setStatus('❌ Error sending message.');
     }
   };
-  // ─────────────────────────────────────────────────────────────
 
   const inputClass =
     'w-full p-4 rounded-2xl bg-white/[0.04] border border-white/10 focus:border-cyan-500/60 focus:shadow-[0_0_20px_rgba(34,211,238,0.15)] outline-none text-white placeholder-slate-600 transition-all duration-300 text-sm font-sans';
