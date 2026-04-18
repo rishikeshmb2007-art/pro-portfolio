@@ -48,7 +48,11 @@ function Projects() {
           </div>
         ) : (
           /* Projects Grid */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className={`grid gap-6 mx-auto ${
+            projects.length === 1 ? 'grid-cols-1 max-w-md' : 
+            projects.length === 2 ? 'grid-cols-1 md:grid-cols-2 max-w-4xl' : 
+            'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+          }`}>
             {projects.map((project, i) => (
               <motion.div
                 key={project.id}
