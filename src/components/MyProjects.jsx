@@ -101,11 +101,17 @@ function Projects() {
                   <a
                     href={project.link}
                     target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-mono text-cyan-500 hover:text-cyan-300 border border-cyan-500/20 hover:border-cyan-400/50 px-4 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)]"
-                  >
-                    View Project ↗
-                  </a>
+                    rel="noopener noreferrer"
+                    onClick={(e) => {
+          if (!project.link) {
+            e.preventDefault();
+            alert("Link is missing in database!");
+          }
+        }} // <--- Indha line thaan miss aayirukku Boss!
+        className="inline-flex items-center gap-2 text-xs font-mono text-cyan-500 hover:text-cyan-300 border border-cyan-500/20 hover:border-cyan-500/50 bg-cyan-500/5 px-3 py-1.5 rounded-full transition-all duration-300"
+      >
+        View Project ↗
+      </a>
                 )}
               </motion.div>
             );
