@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 function About() {
   const stats = [
     { label: 'Year of Study', value: '2nd' },
-    { label: 'Projects Built', value: '10+' },
     { label: 'Technologies', value: '8+' },
   ];
 

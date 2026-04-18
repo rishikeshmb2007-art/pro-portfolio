@@ -15,18 +15,6 @@ const achievements = [
     badge: 'text-cyan-400',
   },
   {
-    icon: '🚀',
-    title: 'Deployed 10+ Live Web Projects',
-    org: 'Vercel & Firebase Hosting · 2024–2025',
-    description:
-      'Independently planned, built, and shipped over 10 full production web applications — from personal tools to portfolio projects — with live deployments accessible to real users.',
-    tags: ['Vercel', 'Firebase', 'Portfolio'],
-    color: 'from-blue-500/20 to-transparent',
-    border: 'border-blue-500/30',
-    glow: 'hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]',
-    badge: 'text-blue-400',
-  },
-  {
     icon: '🧩',
     title: 'Open Source Contributor & GitHub Active',
     org: 'GitHub · 2024–Present',
